@@ -1,7 +1,9 @@
 package com.gmail.alexejkrawez.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
@@ -13,23 +15,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
-import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
-    private UUID id;
+    @Column(name = "id")
+    private Long id;
 
-//    @Column(name = "name")
-    private String name;
+    @Column(name = "telegram_user_id")
+    private Long telegramUserId;
 
 
     @Override

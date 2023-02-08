@@ -1,20 +1,11 @@
 package com.gmail.alexejkrawez.service;
 
+import com.gmail.alexejkrawez.dto.UserDto;
 import com.gmail.alexejkrawez.entity.User;
-import com.gmail.alexejkrawez.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.UUID;
+public interface UserService {
 
-@Service
-@RequiredArgsConstructor
-public class UserService {
+    UserDto getUserById(Long id);
 
-    private final UserRepository userRepository;
-
-    public User getUserById(UUID id) {
-        return userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-    }
+    UserDto saveUserWithId(Long id);
 }

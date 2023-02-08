@@ -11,8 +11,7 @@ import javax.persistence.EntityNotFoundException;
 public class UsersExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<?> handleEntityNotFoundException(Exception e) { //TODO ???
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public ResponseEntity<?> handleEntityNotFoundException(Exception e) {
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
-
